@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS posts;
+DROP TABLE IF EXISTS authors;
+
 CREATE TABLE if not exists authors
 (
     id         int          NOT NULL AUTO_INCREMENT,

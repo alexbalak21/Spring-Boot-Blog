@@ -65,6 +65,10 @@ public class Post {
         this.updatedOn = updatedOn;
     }
 
+    public AggregateReference<Author, Integer> getAuthor() {
+    	return author;
+    }
+
     @Override
     public String toString() {
         return "Post{" +
