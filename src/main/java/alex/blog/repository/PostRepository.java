@@ -1,4 +1,7 @@
 package alex.blog.repository;
 
-public interface PostRepository {
+import alex.blog.model.Post;
+import org.springframework.data.repository.CrudRepository;
+
+public interface PostRepository extends CrudRepository <Post, Integer> {
 }
