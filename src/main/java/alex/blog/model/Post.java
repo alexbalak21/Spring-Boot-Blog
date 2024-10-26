@@ -2,6 +2,7 @@ package alex.blog.model;
 
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.jdbc.core.mapping.AggregateReference;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ public class Post {
     private String content;
     private LocalDateTime publishedOn;
     private LocalDateTime updatedOn;
+    private AggregateReference<Author, Integer> author;
 
     public Post(String title, String content) {
         this.title = title;

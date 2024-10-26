@@ -1,6 +1,8 @@
 package alex.blog;
 
+import alex.blog.model.Author;
 import alex.blog.model.Post;
+import alex.blog.repository.AuthorRepository;
 import alex.blog.repository.PostRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,8 +17,9 @@ public class Application {
 	}
 
 	@Bean
-	CommandLineRunner commandLineRunner(PostRepository posts) {
+	CommandLineRunner commandLineRunner(PostRepository posts, AuthorRepository authors) {
 		return args -> {
+			authors.save(new Author(null, "John", "Doe", "2Zk4S@example.com", "john_doe"));
 			posts.save(new Post("My first post", "This is my first post."));
 			posts.save(new Post("My second post", "This is my second post."));
 		};
