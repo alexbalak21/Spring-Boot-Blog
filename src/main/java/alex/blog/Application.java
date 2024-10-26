@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jdbc.core.mapping.AggregateReference;
 
 @SpringBootApplication
 public class Application {
@@ -19,9 +20,9 @@ public class Application {
 	@Bean
 	CommandLineRunner commandLineRunner(PostRepository posts, AuthorRepository authors) {
 		return args -> {
-			authors.save(new Author(null, "John", "Doe", "2Zk4S@example.com", "john_doe"));
-			posts.save(new Post("My first post", "This is my first post."));
-			posts.save(new Post("My second post", "This is my second post."));
+			AggregateReference<Author, Integer> currentAuthor = AggregateReference.to(authors.save(new Author(null, "John", "Doe", "2Zk4S@example.com", "john_doe")).id());
+			posts.save(new Post("My first post", "This is my first post.", currentAuthor));
+			posts.save(new Post("My second post", "This is my second post.", currentAuthor));
 		};
 	}
 }

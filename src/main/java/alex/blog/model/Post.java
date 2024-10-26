@@ -18,10 +18,11 @@ public class Post {
     private LocalDateTime updatedOn;
     private AggregateReference<Author, Integer> author;
 
-    public Post(String title, String content) {
+    public Post(String title, String content, AggregateReference<Author, Integer> author) {
         this.title = title;
         this.content = content;
         this.publishedOn = LocalDateTime.now();
+        this.author = author;
     }
 
     public Integer getId() {
