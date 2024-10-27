@@ -21,6 +21,42 @@ public class Comment {
         this.post = post;
         this.author = author;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public LocalDateTime getPublishedOn() {
+        return publishedOn;
+    }
+
+    public LocalDateTime getUpdatedOn() {
+        return updatedOn;
+    }
+
+    public AggregateReference<Post, Integer> getPost() {
+        return post;
+    }
+
+    public AggregateReference<Author, Integer> getAuthor() {
+        return author;
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                ", publishedOn=" + publishedOn +
+                ", updatedOn=" + updatedOn +
+                ", post=" + post +
+                ", author=" + author +
+                '}';
+    }
 }
 
 
