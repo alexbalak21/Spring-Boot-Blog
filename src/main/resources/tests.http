@@ -10,8 +10,8 @@ Content-Type: {{contentType}}
   "email": "test@example.com",
   "password": "Test@123"
 }
-#### TEST
-POST {{baseUrl}}/api/users/
+#### TEST WRONG PATH
+GET {{baseUrl}}/wrong
 Content-Type: {{contentType}}
 
 {}
